@@ -14,7 +14,7 @@ $open_brackets = ["(","[","{"];
 $close_brackets = [")","]","}"];
 
 $opens = [];
-$response = "";
+$response = "CORRECT";
 
 foreach($arr_brackets as $char){
 	if(in_array($char, $open_brackets)){
@@ -39,24 +39,37 @@ foreach($arr_brackets as $char){
 
 if($level != 0){
 	$response = "WRONG";
-}else{
-	$response = "CORRECT";
 }
+
+$title = " - Brackets";
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Challenge ME</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	<? include "../../header.php" ?>
+	<style type="text/css">
+		.alert{
+			margin-top: 15px;
+			font-weight: bold;
+		}
+		.alert.correct {
+			background-color: #00800052;
+			color: #008000;
+		}
+		.alert.wrong {
+			background-color: #ff00005c;
+			color: #ff0000;
+		}
+		a {
+
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-12 header"><h3>Brackets</h3></div>
+			<div class="col-12 header"><h3><a href="/"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm9.5 8.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/></svg></a> Brackets</h3></div>
 			<div class="col-12">
 				Check if a bracket sequence is in the correct order. <br>
  				Example:
@@ -67,15 +80,17 @@ if($level != 0){
 			</div>
 		</div>
 		<div class="row">
-			<form method="POST" action="index.php">
-				<div class="form-group">
-					<input type="text" class="form-control" name="brackets">
-				</div>
-				<button type="submit" class="btn btn-primary">SEND</button>
-			</form>
+			<div class="col">
+				<form method="POST" action="">
+					<div class="form-group">
+						<input type="text" class="form-control" name="brackets" value="<?= $_POST["brackets"] ?>" placeholder="Enter your bracket sequence">
+					</div>
+					<button type="submit" class="btn btn-primary">SEND</button>
+				</form>
+			</div>
 		</div>
 		<? if (isset($_POST["brackets"])): ?>
-			<p><? echo $response; ?></p>
+			<div class="alert <?= strtolower($response) ?>"><?= $response; ?></div>
 		<? endif ?>
 		
 	</div>
