@@ -10,6 +10,12 @@ $no_folder = [".","..","DS_STORE", "proba"];
 <html lang="es">
 <head>
 	<? include_once "header.php" ?>
+	<style type="text/css">
+		form{
+			border: 1px solid grey;
+    		padding: 15px;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
