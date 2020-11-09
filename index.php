@@ -9,15 +9,22 @@ $no_folder = [".","..","DS_STORE", "proba"];
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<? include_once "header.php" ?>
+	<?php include_once "header.php" ?>
 	<style type="text/css">
 		form{
 			border: 1px solid grey;
     		padding: 15px;
 		}
+		.bg-image {
+			background: url(/assets/img/bg-img.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
 	</style>
 </head>
-<body>
+<body class="bg-imag">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 header"><h1>Challenge Me</h1></div>
@@ -43,7 +50,7 @@ $no_folder = [".","..","DS_STORE", "proba"];
 			<div class="col-12"><h3>Challenges</h1></div>
 			<div class="col-12">
 				<ul>
-					<? foreach ($dir as $folder) {
+					<?php foreach ($dir as $folder) {
 						if (is_dir('challenges/'.$folder) && !in_array($folder, $no_folder)){
 							echo '<li><a href="challenges/'.$folder.'">'.ucwords($folder).'</a></li>';
 						}

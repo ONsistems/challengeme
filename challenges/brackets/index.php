@@ -47,7 +47,7 @@ $title = " - Brackets";
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<? include "../../header.php" ?>
+	<?php include "../../header.php" ?>
 	<style type="text/css">
 		.alert{
 			margin-top: 15px;
@@ -135,9 +135,9 @@ if($level != 0){
 				</form>
 			</div>
 		</div>
-		<? if (isset($_POST["brackets"])): ?>
-			<div class="alert <?= strtolower($response) ?>"><?= $response; ?></div>
-		<? endif ?>
+		<?php if (isset($_POST["brackets"])): ?>
+			<div class="alert <?php echo strtolower($response) ?>"><?php echo $response; ?></div>
+		<?php endif ?>
 </body>
 </html>
 
