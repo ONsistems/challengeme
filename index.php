@@ -15,12 +15,22 @@ $no_folder = [".","..","DS_STORE", "proba"];
 			border: 1px solid grey;
     		padding: 15px;
 		}
+		body {
+			background-color: grey;
+		}
 		.bg-image {
 			background: url(/assets/img/bg-img.jpg) no-repeat center center fixed; 
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
 			background-size: cover;
+		}
+		.challenge-box{
+			height: 30vh;
+			border-radius: 2pc;
+			border: 2px solid;
+			margin: 0 5px;
+			padding: 15px;
 		}
 	</style>
 </head>
@@ -58,6 +68,35 @@ $no_folder = [".","..","DS_STORE", "proba"];
 	    		</ul>
 			</div>
 		</div>
+		<div class="challenges">
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+			<div class="challenge-box">your content</div>
+		</div>
 	</div>
 </body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.challenges').slick({
+				infinite: true,
+				slidesToShow: 5,
+				slidesToScroll: 1
+			});
+		});
+	</script>
 </html>
