@@ -26,23 +26,30 @@ $no_folder = [".","..","DS_STORE", "proba"];
 			background-size: cover;
 		}
 		.challenge-box{
-			height: 30vh;
+			height: 290px !important;
+			width: 210px !important;
 			border-radius: 2pc;
 			border: 2px solid;
 			margin: 0 5px;
 			padding: 15px;
+		}
+		.header {
+			text-align: center;
+			font-size: 5vw;
 		}
 	</style>
 </head>
 <body class="bg-imag">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 header"><h1>Challenge Me</h1></div>
+			<div class="col-12 header">Challenge Me</div>
 			<div class="col-12">
 				<p>Who doesn't like a good challenge? In onsistems we sure love the good challenges. That's why we accept all kind of challenges, that we gather all in this repository All the challenges are wrote in PHP, but we also like JavaScript, or his digievolution, TypeScript. We accept all kind of challenges, you can send us your challenge:</p>
 			</div>
-			<div class="col-6">
-				<form method="POST" action="challenge.php">
+		</div>
+		<form method="POST" action="challenge.php">
+			<div class="row">
+				<div class="col-6">
 					<div class="form-group">
 						<label for="challenge">Your challenge: </label>
 						<textarea name="challenge" class="form-control" id="challenge"></textarea>
@@ -51,10 +58,13 @@ $no_folder = [".","..","DS_STORE", "proba"];
 						<label for="twitter">Twitter Acount (opcional): </label>
 						<input type=text name="twitter" class="form-control" id="twitter"></input>
 					</div>
+				</div>
+				<div class="col-6">
 					<button type="submit" class="btn btn-primary">Send Challenge</button>
-				</form>
+				</div>
 			</div>
-		</div>
+		</form>
+		
 		<hr>
 		<div class="row">
 			<div class="col-12"><h3>Challenges</h1></div>
@@ -93,9 +103,31 @@ $no_folder = [".","..","DS_STORE", "proba"];
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.challenges').slick({
+				centerMode: true,
+				dots:true,
 				infinite: true,
-				slidesToShow: 5,
-				slidesToScroll: 1
+				slidesToShow: 4,
+				slidesToScroll: 1,
+				responsive: [
+					{
+						breakpoint: 1050,
+						settings: {
+							slidesToShow: 4,
+						}
+					},
+					{
+						breakpoint: 950,
+						settings: {
+							slidesToShow: 3,
+						}
+					},
+					{
+						breakpoint: 750,
+						settings: {
+							slidesToShow: 1,
+						}
+					}
+				]
 			});
 		});
 	</script>
