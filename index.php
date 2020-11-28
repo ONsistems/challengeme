@@ -1,44 +1,13 @@
 <?php 
 
 $dir = scandir('challenges');
-$no_folder = [".","..","DS_STORE", "proba"];
-
+$no_folder = [".","..","DS_STORE","proba"]
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	<?php include_once "header.php" ?>
-	<style type="text/css">
-		form{
-			border: 1px solid grey;
-    		padding: 15px;
-		}
-		body {
-			background-color: grey;
-		}
-		.bg-image {
-			background: url(/assets/img/bg-img.jpg) no-repeat center center fixed; 
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-		}
-		.challenge-box{
-			height: 290px !important;
-			width: 210px !important;
-			border-radius: 2pc;
-			border: 2px solid;
-			margin: 0 5px;
-			padding: 15px;
-		}
-		.header {
-			text-align: center;
-			font-size: 5vw;
-		}
-	</style>
-</head>
+<?php include_once "header.php" ?>
 <body class="bg-imag">
 	<div class="container">
 		<div class="row">
@@ -48,19 +17,19 @@ $no_folder = [".","..","DS_STORE", "proba"];
 			</div>
 		</div>
 		<form method="POST" action="challenge.php">
-			<div class="row">
-				<div class="col-6">
+			<div class="row a-i-center">
+				<div class="col-sm-9 col-12">
 					<div class="form-group">
 						<label for="challenge">Your challenge: </label>
-						<textarea name="challenge" class="form-control" id="challenge"></textarea>
+						<textarea name="challenge" class="form-control" id="challenge" rows=5></textarea>
 					</div>
 					<div class="form-group">
 						<label for="twitter">Twitter Acount (opcional): </label>
 						<input type=text name="twitter" class="form-control" id="twitter"></input>
 					</div>
 				</div>
-				<div class="col-6">
-					<button type="submit" class="btn btn-primary">Send Challenge</button>
+				<div class="col-sm-3 col-12">
+					<button type="submit" class="btn btn-primary btn-challenge">Send Challenge</button>
 				</div>
 			</div>
 		</form>
@@ -68,35 +37,21 @@ $no_folder = [".","..","DS_STORE", "proba"];
 		<hr>
 		<div class="row">
 			<div class="col-12"><h3>Challenges</h1></div>
-			<div class="col-12">
-				<ul>
-					<?php foreach ($dir as $folder) {
-						if (is_dir('challenges/'.$folder) && !in_array($folder, $no_folder)){
-							echo '<li><a href="challenges/'.$folder.'">'.ucwords($folder).'</a></li>';
-						}
-					} ?>
-	    		</ul>
-			</div>
 		</div>
 		<div class="challenges">
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
-			<div class="challenge-box">your content</div>
+			<?php foreach ($dir as $folder): ?>
+				<?php if (is_dir('challenges/'.$folder) && !in_array($folder, $no_folder)): ?>
+					<a href="challenges/<?php echo $folder; ?>">
+						<div class="challenge-box">
+							<div class="box-img">
+								<img src="/challenges/<?php echo $folder; ?>/img.png" width="100%">
+							</div>
+							<div class="box-tittle"><?php echo ucwords($folder); ?></div>
+							<div class="box-code php">PHP</div>
+						</div>
+					</a>
+				<?php endif ?> 
+			<?php endforeach ?>
 		</div>
 	</div>
 </body>
@@ -108,6 +63,7 @@ $no_folder = [".","..","DS_STORE", "proba"];
 				infinite: true,
 				slidesToShow: 4,
 				slidesToScroll: 1,
+				autoplay:false,
 				responsive: [
 					{
 						breakpoint: 1050,
@@ -124,6 +80,9 @@ $no_folder = [".","..","DS_STORE", "proba"];
 					{
 						breakpoint: 750,
 						settings: {
+							autoplay:false,
+							dots:false,
+							arrows:false,
 							slidesToShow: 1,
 						}
 					}

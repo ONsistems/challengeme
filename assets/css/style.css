@@ -1,0 +1,65 @@
+form{
+	border: 1px solid grey;
+	padding: 15px;
+}
+body {
+	background-color: grey;
+}
+a, a:hover {
+	color:unset;
+}
+.bg-image {
+	background: url(/assets/img/bg-img.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.challenge-box{
+	height: 290px !important;
+	width: 210px !important;
+	border-radius: 2pc;
+	border: 2px solid;
+	margin: 0 5px;
+	padding: 15px;
+	display: flex !important;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.challenge-box div {
+	width: 100%;
+}
+.box-tittle {
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+.box-code{
+	border-radius: 20px;
+    border: 1px solid #000000;
+    width: auto !important;
+    padding: 5px 20px;
+}
+.php {
+	background-color: #8892BF;
+	color: #ffffff;
+}
+.header {
+	text-align: center;
+	font-size: 5vw;
+}
+.a-i-center {
+	align-items: center;
+}
+.btn-challenge {
+	width: 100%;
+	font-size: 20px;
+	padding: 20px 10px;
+}
+
+@media screen and (max-width: 480px){
+	.btn-challenge {
+		width: 100%;
+		padding: inherit;
+	}
+}
